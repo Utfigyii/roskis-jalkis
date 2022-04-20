@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/models/outofboundstext.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/ohter/outofboundstext.gd" type="Script" id=2]
+
+[sub_resource type="Curve" id=5]
+max_value = -1.0
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0.270588, 0.270588, 1 )
+rim_enabled = true
+rim = 1.0
+rim_tint = 1.0
+rim_texture = SubResource( 6 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 8.06868, 0.538934, 1.80331 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "outofbounds"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("outofboundsbody")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, -10, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "reset"
+length = 0.1
+tracks/0/type = "transform"
+tracks/0/path = NodePath("outofboundsbody")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, -7, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[node name="outofboundstext" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="outofboundsbody" type="KinematicBody" parent="."]
+
+[node name="SpotLight" type="SpotLight" parent="outofboundsbody"]
+transform = Transform( 1, 0, 0, 0, 0.999214, -0.0396435, 0, 0.0396435, 0.999214, 0, 0.29123, 6.16905 )
+light_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+light_energy = 0.79
+light_negative = true
+spot_range = 10.4447
+spot_attenuation = 0.0213444
+spot_angle = 57.8215
+
+[node name="outofboundstext" type="MeshInstance" parent="outofboundsbody"]
+transform = Transform( 0.741875, 0, 0, 0, -3.24284e-08, -0.741875, 0, 0.741875, -3.24284e-08, 0, 0.29123, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="outofboundsbody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224783, -0.779418 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "reset"
+anims/outofbounds = SubResource( 3 )
+anims/reset = SubResource( 4 )
+
+[node name="resettimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="resettimer" to="." method="_on_resettimer_timeout"]

@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/models/goaltext.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/scirtp/goaltext.gd" type="Script" id=2]
+[ext_resource path="res://assets/scirtp/goaltextArea.gd" type="Script" id=3]
+[ext_resource path="res://assets/sonidos/GOOL.wav" type="AudioStream" id=4]
+
+[sub_resource type="Animation" id=2]
+resource_name = "goal!!"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("goaltextBody")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, -40, 1, 0, 0, -2.18557e-08, 1, 1, 1, 1, 1, 0, 0, 5, 0, 0, 0, 1, 6.31937, 6.31937, 6.31937 )
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "reset"
+length = 0.1
+tracks/0/type = "transform"
+tracks/0/path = NodePath("goaltextBody")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, -18, 1, 0, 0, -2.18557e-08, 1, 1, 1 )
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.282353, 1, 0.952941, 1 )
+metallic = 1.0
+metallic_specular = 0.0
+roughness = 0.23
+emission_enabled = true
+emission = Color( 0.623529, 1, 0.992157, 1 )
+emission_energy = 0.02
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereShape" id=6]
+radius = 1.65181
+
+[sub_resource type="SphereShape" id=5]
+radius = 2.68822
+
+[node name="goaltext" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "reset"
+anims/goal!! = SubResource( 2 )
+anims/reset = SubResource( 3 )
+
+[node name="goaltextBody" type="KinematicBody" parent="."]
+transform = Transform( 6.31937, 0, 0, 0, 6.31937, 0, 0, 0, 6.31937, 0, 0, 5 )
+
+[node name="goaltext" type="MeshInstance" parent="goaltextBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="goaltextBody"]
+shape = SubResource( 6 )
+
+[node name="goaltextArea" type="Area" parent="goaltextBody"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="goaltextBody/goaltextArea"]
+shape = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="goaltextBody/goaltextArea"]
+wait_time = 2.0
+
+[node name="CPUParticles" type="CPUParticles" parent="goaltextBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+mesh = ExtResource( 1 )
+flag_align_y = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.1
+angular_velocity_random = 0.57
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="goaltextBody"]
+stream = ExtResource( 4 )
+volume_db = 20.0
+
+[connection signal="timeout" from="goaltextBody/goaltextArea/Timer" to="." method="_on_Timer_timeout"]
