@@ -39,10 +39,9 @@ script = ExtResource( 2 )
 [node name="outofboundsbody" type="KinematicBody" parent="."]
 
 [node name="SpotLight" type="SpotLight" parent="outofboundsbody"]
-transform = Transform( 1, 0, 0, 0, 0.999214, -0.0396435, 0, 0.0396435, 0.999214, 0, 0.29123, 6.16905 )
-light_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+transform = Transform( 1, 0, 0, 0, 0.999214, -0.0396435, 0, 0.0396435, 0.999214, 0, 0.29123, 2.43201 )
+light_color = Color( 0.278431, 0.278431, 0.278431, 1 )
 light_energy = 0.79
-light_negative = true
 spot_range = 10.4447
 spot_attenuation = 0.0213444
 spot_angle = 57.8215
@@ -64,5 +63,7 @@ anims/reset = SubResource( 4 )
 
 [node name="resettimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
 
 [connection signal="timeout" from="resettimer" to="." method="_on_resettimer_timeout"]
