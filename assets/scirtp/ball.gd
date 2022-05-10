@@ -28,3 +28,4 @@ func _on_soundArea_area_entered(area):
 		emit_signal("goal")
 	if area.has_method("outOfBounds"):
 		emit_signal("outOfBounds")
+	$RigidBody/soundArea/CollisionShape.disabled = true
