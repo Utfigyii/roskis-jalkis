@@ -20,11 +20,11 @@ func _on_soundArea_body_entered(body):
 		$RigidBody/ballgoalbonksound.play(0)
 
 func doGoal():
-	pass
-
+	print("now is goal")
 
 func _on_soundArea_area_entered(area):
 	if area.has_method("doGoal"):
+		print("voi vittu")
 		emit_signal("goal")
 	if area.has_method("outOfBounds"):
 		emit_signal("outOfBounds")

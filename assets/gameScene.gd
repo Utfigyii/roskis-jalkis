@@ -1,5 +1,7 @@
 extends Spatial
 
+var score1 = 0
+var score2 = 0
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("reload"):
@@ -10,11 +12,11 @@ func _physics_process(delta):
 
 func _on_goal1area_body_entered(body):
 	if body.is_in_group("ball"):
-		print("goale")
+		print("goale-group")
 
 func _on_goal2area_body_entered(body):
 	if body.has_method("doGoal"):
-		print("goale")
+		print("goale-hasmethod")
 
 
 func _on_ball_goal():
