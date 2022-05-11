@@ -31,13 +31,11 @@ func _on_ball_outOfBounds():
 
 
 func _on_goaltext_reset():
-	#get_tree().reload_current_scene()
-	pass
-
+	get_parent().reloadGameField()
+	
 
 func _on_outofboundstext_reset():
-	#get_tree().reload_current_scene()
-	pass
+	get_parent().reloadGameField()
 
 func _on_ball_goal1():
 	$goaltext/AnimationPlayer.play("goal!!")
@@ -52,3 +50,7 @@ func _on_ball_goal2():
 	$goaltext/goaltextBody/goaltextArea/Timer.start(3)
 	emit_signal("player2")
 	score2 = score2 + 1
+	
+func removeThis():
+	print("removed")
+	queue_free()
