@@ -1,6 +1,7 @@
 extends Spatial
 
-signal goal()
+signal goal1()
+signal goal2()
 signal outOfBounds()
 
 
@@ -23,9 +24,12 @@ func doGoal():
 	print("now is goal")
 
 func _on_soundArea_area_entered(area):
-	if area.has_method("doGoal"):
+	if area.has_method("doGoal1"):
 		print("voi vittu")
-		emit_signal("goal")
+		emit_signal("goal1")
+	elif area.has_method("doGoal2"):
+		print("toine maali oli sit")
+		emit_signal("goal2")
 	if area.has_method("outOfBounds"):
 		emit_signal("outOfBounds")
 	$RigidBody/soundArea/CollisionShape.disabled = true

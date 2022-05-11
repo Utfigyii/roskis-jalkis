@@ -1,5 +1,5 @@
 extends Area
 
 
-func doGoal():
-	print("le goale")
+func doGoal2():
+	print("le goale2")

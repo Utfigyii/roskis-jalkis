@@ -19,10 +19,6 @@ func _on_goal2area_body_entered(body):
 		print("goale-hasmethod")
 
 
-func _on_ball_goal():
-	$goaltext/AnimationPlayer.play("goal!!")
-	$goaltext/goaltextBody/AudioStreamPlayer.play()
-	$goaltext/goaltextBody/goaltextArea/Timer.start(3)
 
 
 func _on_ball_outOfBounds():
@@ -37,3 +33,16 @@ func _on_goaltext_reset():
 
 func _on_outofboundstext_reset():
 	get_tree().reload_current_scene()
+
+
+func _on_ball_goal1():
+	$goaltext/AnimationPlayer.play("goal!!")
+	$goaltext/goaltextBody/AudioStreamPlayer.play()
+	$goaltext/goaltextBody/goaltextArea/Timer.start(3)
+	score1 = score1 + 1
+
+func _on_ball_goal2():
+	$goaltext/AnimationPlayer.play("goal!!")
+	$goaltext/goaltextBody/AudioStreamPlayer.play()
+	$goaltext/goaltextBody/goaltextArea/Timer.start(3)
+	score2 = score2 + 1
