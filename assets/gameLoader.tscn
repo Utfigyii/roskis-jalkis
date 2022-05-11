@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/testScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/scirtp/gameLoader.gd" type="Script" id=2]
+[ext_resource path="res://assets/ohter/testsceneEnvironment.tres" type="Environment" id=3]
+
+[node name="gameLoader" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )
+
+[node name="sceneRoot" parent="." instance=ExtResource( 1 )]
+
+[connection signal="player1" from="sceneRoot" to="." method="_on_sceneRoot_player1"]
+[connection signal="player2" from="sceneRoot" to="." method="_on_sceneRoot_player2"]
