@@ -6,6 +6,12 @@ var score2 = 0
 signal player1()
 signal player2()
 
+func _ready():
+	connect("player1", get_parent(), "_on_sceneRoot_player1")
+	connect("player2", get_parent(), "_on_sceneRoot_player2")
+	$game/ball/RigidBody/soundArea/CollisionShape.disabled = false
+	print("burh")
+
 func _physics_process(delta):
 	#if Input.is_action_just_pressed("reload"):
 	#	get_tree().reload_current_scene()
