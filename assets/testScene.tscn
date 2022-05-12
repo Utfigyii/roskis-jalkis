@@ -173,7 +173,7 @@ shape = SubResource( 11 )
 
 [node name="outofboundssound" type="AudioStreamPlayer" parent="game/outofbounds"]
 stream = ExtResource( 15 )
-volume_db = 5.0
+volume_db = -10.0
 
 [node name="outofboundstext" parent="game/outofbounds" instance=ExtResource( 17 )]
 transform = Transform( 5.08579, 0, 0, 0, 5.08579, 0, 0, 0, 5.08579, 0, 4.21047, 4.18268 )
