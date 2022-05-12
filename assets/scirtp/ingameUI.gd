@@ -16,6 +16,7 @@ func _on_gameLoader_updateScore():
 	print("scoreUpdated")
 	if (score1 == 10 or score2 == 10) and !ignoreScore:
 		$WindowDialog.popup()
+		$AudioStreamPlayer.play()
 
 
 func _on_AcceptDialog_confirmed():

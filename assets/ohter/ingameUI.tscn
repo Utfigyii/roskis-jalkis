@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/scirtp/ingameUI.gd" type="Script" id=1]
+[ext_resource path="res://assets/sonidos/WIAN.wav" type="AudioStream" id=2]
 
 [node name="uiRoot" type="Control"]
 anchor_right = 1.0
@@ -83,6 +84,10 @@ margin_right = -23.0
 margin_bottom = -17.0
 rect_pivot_offset = Vector2( -321, -73 )
 text = "continue"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = 10.0
 
 [connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]
 [connection signal="pressed" from="WindowDialog/goMenu" to="." method="_on_goMenu_pressed"]
