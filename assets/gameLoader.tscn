@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/ohter/ingameUI.tscn" type="PackedScene" id=4]
 
 [node name="gameLoader" type="Spatial"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
