@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/menubiit1.wav-54b9be75b1e90f4d6615b21bc3f54019.sample"
+
+[deps]
+
+source_file="res://misc/menubiit1.wav"
+dest_files=[ "res://.import/menubiit1.wav-54b9be75b1e90f4d6615b21bc3f54019.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
