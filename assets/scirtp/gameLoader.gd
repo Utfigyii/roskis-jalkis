@@ -3,6 +3,7 @@ extends Spatial
 var score1 = 0
 var score2 = 0
 var gameScene = preload("res://assets/testScene.tscn")
+var menuScene = load("res://menu.tscn")
 signal updateScore()
 
 func _ready():
@@ -14,7 +15,7 @@ func _process(delta):
 		reloadGameField()
 		print("should spwan")
 	if Input.is_action_just_pressed("exit"):
-		get_tree().quit()
+		get_tree().change_scene_to(menuScene)
 
 func _on_sceneRoot_player1():
 	score1 = score1 + 1
