@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/charater/plaer1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scirtp/menu.gd" type="Script" id=2]
 [ext_resource path="res://assets/texturs/trashfootball.png" type="Texture" id=3]
+[ext_resource path="res://assets/sonidos/traaaaasfuuutbolll.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "animation"
@@ -101,6 +102,11 @@ shape = SubResource( 1 )
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.28986, 0 )
 shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="menu/playbutton" to="menu" method="_on_playbutton_pressed"]
 [connection signal="pressed" from="menu/help" to="menu" method="_on_help_pressed"]
