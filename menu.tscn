@@ -81,7 +81,8 @@ anims/animation = SubResource( 2 )
 [node name="plaer" parent="." instance=ExtResource( 1 )]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.707, 3.211, 4.188 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.707, 3.211, 8.024 )
+fov = 44.6
 
 [node name="StaticBody" type="StaticBody" parent="."]
 
