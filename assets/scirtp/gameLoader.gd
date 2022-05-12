@@ -34,3 +34,9 @@ func reloadGameField():
 	add_child(gameSceneInstance)
 	print(Vector2(score1, score2))
 	emit_signal("updateScore")
+
+
+func _on_uiRoot_restart():
+	score1 = 0
+	score2 = 0
+	reloadGameField()

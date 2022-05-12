@@ -19,3 +19,4 @@ environment = ExtResource( 3 )
 [connection signal="updateScore" from="." to="uiRoot" method="_on_gameLoader_updateScore"]
 [connection signal="player1" from="sceneRoot" to="." method="_on_sceneRoot_player1"]
 [connection signal="player2" from="sceneRoot" to="." method="_on_sceneRoot_player2"]
+[connection signal="restart" from="uiRoot" to="." method="_on_uiRoot_restart"]
