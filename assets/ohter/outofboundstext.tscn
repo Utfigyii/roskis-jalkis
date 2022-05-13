@@ -5,6 +5,11 @@
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 1, 0.270588, 0.270588, 1 )
+emission_enabled = true
+emission = Color( 0.466667, 0, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 rim_enabled = true
 rim = 1.0
 rim_tint = 1.0
@@ -40,11 +45,15 @@ script = ExtResource( 2 )
 
 [node name="SpotLight" type="SpotLight" parent="outofboundsbody"]
 transform = Transform( 1, 0, 0, 0, 0.999214, -0.0396435, 0, 0.0396435, 0.999214, 0, 0.29123, 2.43201 )
-light_color = Color( 0.278431, 0.278431, 0.278431, 1 )
-light_energy = 0.79
+visible = false
+light_energy = 0.181
+light_indirect_energy = 0.0
+light_negative = true
+light_specular = 0.895
 spot_range = 10.4447
 spot_attenuation = 0.0213444
 spot_angle = 57.8215
+spot_angle_attenuation = 3.24901
 
 [node name="outofboundstext" type="MeshInstance" parent="outofboundsbody"]
 transform = Transform( 0.741875, 0, 0, 0, -3.24284e-08, -0.741875, 0, 0.741875, -3.24284e-08, 0, 0.29123, 0 )
@@ -63,7 +72,5 @@ anims/reset = SubResource( 4 )
 
 [node name="resettimer" type="Timer" parent="."]
 wait_time = 3.0
-
-[node name="BakedLightmap" type="BakedLightmap" parent="."]
 
 [connection signal="timeout" from="resettimer" to="." method="_on_resettimer_timeout"]

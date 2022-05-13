@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/charater/plaer1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scirtp/menu.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/texturs/menu/help.jpg" type="Texture" id=6]
 [ext_resource path="res://assets/texturs/menu/play.jpg" type="Texture" id=7]
 [ext_resource path="res://assets/texturs/menu/exit.jpg" type="Texture" id=8]
+[ext_resource path="res://assets/ohter/ui.tres" type="Theme" id=9]
 
 [sub_resource type="Animation" id=2]
 resource_name = "animation"
@@ -33,6 +34,7 @@ extents = Vector3( 9.53365, 1, 5.14481 )
 [node name="menu" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+theme = ExtResource( 9 )
 script = ExtResource( 2 )
 
 [node name="playbutton" type="Button" parent="menu"]

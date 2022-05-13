@@ -178,6 +178,10 @@ volume_db = -10.0
 [node name="outofboundstext" parent="game/outofbounds" instance=ExtResource( 17 )]
 transform = Transform( 5.08579, 0, 0, 0, 5.08579, 0, 0, 0, 5.08579, 0, 4.21047, 4.18268 )
 
+[node name="DirectionalLight" type="DirectionalLight" parent="game"]
+transform = Transform( -0.785622, 0.502521, -0.36093, -0.350645, -0.842262, -0.409442, -0.509751, -0.195108, 0.837906, 0, 12.3059, 0 )
+light_energy = 0.173
+
 [node name="goaltext" parent="." instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.59887, 0 )
 
