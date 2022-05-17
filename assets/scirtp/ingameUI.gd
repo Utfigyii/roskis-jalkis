@@ -14,7 +14,7 @@ func _on_gameLoader_updateScore():
 	$"1goals".value = score1
 	$"2goals".value = score2
 	print("scoreUpdated")
-	if (score1 == 10 or score2 == 10) and !ignoreScore:
+	if (score1 == 1 or score2 == 1) and !ignoreScore:
 		$WindowDialog.popup()
 		$AudioStreamPlayer.play()
 

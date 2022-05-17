@@ -13,3 +13,7 @@ func _on_help_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+
+func _on_Button_pressed():
+	$AcceptDialog.hide()

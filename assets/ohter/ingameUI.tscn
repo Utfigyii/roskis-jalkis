@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/scirtp/ingameUI.gd" type="Script" id=1]
 [ext_resource path="res://assets/sonidos/WIAN.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/ohter/ui.tres" type="Theme" id=3]
+[ext_resource path="res://assets/texturs/menu/menu.png" type="Texture" id=4]
+[ext_resource path="res://assets/texturs/menu/contunue.png" type="Texture" id=5]
+[ext_resource path="res://assets/texturs/menu/again.png" type="Texture" id=6]
 
 [node name="uiRoot" type="Control"]
 anchor_right = 1.0
@@ -42,12 +45,13 @@ dialog_text = "game over"
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
 visible = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 120.0
-margin_top = 182.0
-margin_right = -654.0
-margin_bottom = -327.0
+anchor_left = 0.5
+anchor_top = 0.455
+anchor_right = 0.5
+anchor_bottom = 0.455
+margin_left = -392.0
+margin_top = -135.0
+margin_right = -95.0
 window_title = "you win"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="WindowDialog"]
@@ -60,33 +64,35 @@ text = "game over"
 [node name="goMenu" type="Button" parent="WindowDialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = 55.0
-margin_right = -185.0
-margin_bottom = -16.0
+margin_left = 12.0
+margin_top = 51.0
+margin_right = -194.0
+margin_bottom = -8.0
 rect_pivot_offset = Vector2( -321, -73 )
-text = "menu"
+icon = ExtResource( 4 )
 expand_icon = true
 
 [node name="restartGame" type="Button" parent="WindowDialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 89.0
-margin_top = 55.0
-margin_right = -99.0
-margin_bottom = -16.0
+margin_left = 102.0
+margin_top = 54.0
+margin_right = -108.0
+margin_bottom = -11.0
 rect_pivot_offset = Vector2( -321, -73 )
-text = "restart"
+icon = ExtResource( 6 )
+expand_icon = true
 
 [node name="continue" type="Button" parent="WindowDialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 165.0
+margin_left = 194.0
 margin_top = 54.0
-margin_right = -23.0
-margin_bottom = -17.0
+margin_right = -14.0
+margin_bottom = -11.0
 rect_pivot_offset = Vector2( -321, -73 )
-text = "continue"
+icon = ExtResource( 5 )
+expand_icon = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

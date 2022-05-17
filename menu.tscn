@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/charater/plaer1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scirtp/menu.gd" type="Script" id=2]
@@ -7,7 +7,10 @@
 [ext_resource path="res://misc/menumusic.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/texturs/menu/help.png" type="Texture" id=6]
 [ext_resource path="res://assets/ohter/testsceneEnvironment.tres" type="Environment" id=7]
+[ext_resource path="res://assets/texturs/menu/gaming.png" type="Texture" id=8]
 [ext_resource path="res://assets/ohter/ui.tres" type="Theme" id=9]
+[ext_resource path="res://assets/texturs/menu/exist.png" type="Texture" id=10]
+[ext_resource path="res://assets/texturs/menu/ok.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=2]
 resource_name = "animation"
@@ -43,6 +46,7 @@ margin_left = 464.0
 margin_top = 112.0
 margin_right = -294.0
 margin_bottom = -283.0
+icon = ExtResource( 8 )
 align = 2
 
 [node name="help" type="Button" parent="menu"]
@@ -62,16 +66,32 @@ margin_left = 656.0
 margin_top = 432.0
 margin_right = -106.0
 margin_bottom = 25.0
+icon = ExtResource( 10 )
 
-[node name="AcceptDialog" type="AcceptDialog" parent="menu"]
+[node name="AcceptDialog" type="WindowDialog" parent="menu"]
 visible = true
 margin_left = 104.0
 margin_top = 128.0
-margin_right = 255.0
-margin_bottom = 204.0
+margin_right = 312.0
+margin_bottom = 234.0
 window_title = "help"
-dialog_text = "press button(s) to find out what they do
-tip: adjl are the players"
+
+[node name="Button" type="Button" parent="menu/AcceptDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 89.0
+margin_top = 71.0
+margin_right = -75.0
+margin_bottom = -2.0
+icon = ExtResource( 11 )
+expand_icon = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="menu/AcceptDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -41.0
+text = "Press buttons to find out what they do
+tip: adjl are the players esc goes to menu"
 
 [node name="Trashfootball" type="Sprite" parent="menu"]
 position = Vector2( 504, 144 )
@@ -123,3 +143,4 @@ environment = ExtResource( 7 )
 [connection signal="pressed" from="menu/playbutton" to="menu" method="_on_playbutton_pressed"]
 [connection signal="pressed" from="menu/help" to="menu" method="_on_help_pressed"]
 [connection signal="pressed" from="menu/exit" to="menu" method="_on_exit_pressed"]
+[connection signal="pressed" from="menu/AcceptDialog/Button" to="menu" method="_on_Button_pressed"]
