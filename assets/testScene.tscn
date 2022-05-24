@@ -236,6 +236,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.59887, 0 )
 [connection signal="button_up" from="game/players/playerAndroidButtons/plaer2Button" to="game/players/plaer2" method="_on_plaer2Button_button_up"]
 [connection signal="button_down" from="game/players/playerAndroidButtons/plaer1Button" to="game/players/plaer1" method="_on_plaer1Button_button_down"]
 [connection signal="button_up" from="game/players/playerAndroidButtons/plaer1Button" to="game/players/plaer1" method="_on_plaer1Button_button_up"]
+[connection signal="button_down" from="game/players/playerAndroidButtons/plaer3Button" to="game/players/plaer3" method="_on_plaer3Button_button_down"]
+[connection signal="button_up" from="game/players/playerAndroidButtons/plaer3Button" to="game/players/plaer3" method="_on_plaer3Button_button_up"]
 [connection signal="button_down" from="game/players/playerAndroidButtons/plaer4Button" to="game/players/plaer4" method="_on_plaer4Button_button_down"]
 [connection signal="button_up" from="game/players/playerAndroidButtons/plaer4Button" to="game/players/plaer4" method="_on_plaer4Button_button_up"]
 [connection signal="goal1" from="game/ball" to="." method="_on_ball_goal1"]
