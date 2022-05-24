@@ -65,6 +65,53 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18.7399
 [node name="plaer1" parent="game/players" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71233, 0.0128453, 0.274653 )
 
+[node name="playerAndroidButtons" type="Control" parent="game/players"]
+anchor_left = 0.003
+anchor_top = 0.003
+anchor_right = 0.042
+anchor_bottom = 0.07
+margin_left = -0.072
+margin_top = 0.2
+margin_right = -0.00800323
+
+[node name="plaer2Button" type="Button" parent="game/players/playerAndroidButtons"]
+anchor_top = -0.1
+anchor_right = 12.1
+anchor_bottom = 7.025
+margin_left = -1.0
+text = "attacker"
+flat = true
+
+[node name="plaer1Button" type="Button" parent="game/players/playerAndroidButtons"]
+anchor_left = -0.025
+anchor_top = 7.15
+anchor_right = 12.175
+anchor_bottom = 15.2
+margin_top = -3.05176e-05
+text = "defender"
+flat = true
+
+[node name="plaer3Button" type="Button" parent="game/players/playerAndroidButtons"]
+anchor_left = 12.25
+anchor_top = -0.05
+anchor_right = 25.5
+anchor_bottom = 6.9
+margin_left = -3.05176e-05
+margin_right = -6.10352e-05
+text = "attacker"
+flat = true
+
+[node name="plaer4Button" type="Button" parent="game/players/playerAndroidButtons"]
+anchor_left = 12.325
+anchor_top = 7.05
+anchor_right = 25.525
+anchor_bottom = 14.925
+margin_left = -3.05176e-05
+margin_right = -6.10352e-05
+margin_bottom = -6.10352e-05
+text = "defender"
+flat = true
+
 [node name="StaticBody" type="StaticBody" parent="game"]
 
 [node name="CollisionShape4" type="CollisionShape" parent="game/StaticBody"]
@@ -185,6 +232,12 @@ light_energy = 0.173
 [node name="goaltext" parent="." instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.59887, 0 )
 
+[connection signal="button_down" from="game/players/playerAndroidButtons/plaer2Button" to="game/players/plaer2" method="_on_plaer2Button_button_down"]
+[connection signal="button_up" from="game/players/playerAndroidButtons/plaer2Button" to="game/players/plaer2" method="_on_plaer2Button_button_up"]
+[connection signal="button_down" from="game/players/playerAndroidButtons/plaer1Button" to="game/players/plaer1" method="_on_plaer1Button_button_down"]
+[connection signal="button_up" from="game/players/playerAndroidButtons/plaer1Button" to="game/players/plaer1" method="_on_plaer1Button_button_up"]
+[connection signal="button_down" from="game/players/playerAndroidButtons/plaer4Button" to="game/players/plaer4" method="_on_plaer4Button_button_down"]
+[connection signal="button_up" from="game/players/playerAndroidButtons/plaer4Button" to="game/players/plaer4" method="_on_plaer4Button_button_up"]
 [connection signal="goal1" from="game/ball" to="." method="_on_ball_goal1"]
 [connection signal="goal2" from="game/ball" to="." method="_on_ball_goal2"]
 [connection signal="outOfBounds" from="game/ball" to="." method="_on_ball_outOfBounds"]
